@@ -1,0 +1,23 @@
+
+body {
+  margin: 0px;
+  padding: 0px;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-size: 8vw;
+}
+
+.main {
+  display: flex;
+  background-color: #000000;
+  width: 80vw;
+  height: 100vh;
+  padding: 0px 10vw;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 1em;
+  font-weight: 800;
+  font-family: var(--font-jetbrains), sans-serif;
+}
