@@ -3,7 +3,7 @@ body {
   margin: 0px;
   padding: 0px;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   font-size: 16pt;
 }
@@ -39,7 +39,7 @@ body {
   display: flex;
   position: relative;
   inset: 0px;
-  height: 100vh;
+  height: 100dvh;
   align-items: center;
   flex-direction: column;
 }
