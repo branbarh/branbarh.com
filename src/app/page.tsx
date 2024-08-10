@@ -1,11 +1,13 @@
 // import Image from "next/image";
 // import styles from "./styles/page.module.css";
+import { Footer } from "./(components)/components";
 
 export default function Home() {
   return (
-    <main className="main">
-      UNDER CONSTRUCTION...
-    </main>
+    <>
+      <main className="main">UNDER CONSTRUCTION...</main>
+      <Footer toRenderSocials={true} />
+    </>
   );
 }
 

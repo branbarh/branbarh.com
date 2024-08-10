@@ -1,23 +1,58 @@
-
 body {
+  background-color: #000;
   margin: 0px;
   padding: 0px;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  font-size: 8vw;
+  font-size: 16pt;
+}
+
+.background {
+  position: absolute;
+  inset: 0px;
+}
+.background div {
+  position: absolute;
+  inset: 0px;
+}
+.backgroundBase {
+  background-color: #000;
+}
+.backgroundImage {
+  background: url("/assets/background.jpg") fixed no-repeat center / cover;
+  filter: blur(5px);
+}
+.backgroundTint {
+  background-color: #0000007f;
+}
+.backgroundInsetShadow {
+  /*                        blur spread */
+  box-shadow: inset 0px 0px 20px 10px #000000;
+}
+.backgroundGrain {
+  background: url("/assets/noise.png") fixed repeat center;
+  opacity: 0.08;
+}
+
+.layout {
+  display: flex;
+  position: relative;
+  inset: 0px;
+  height: 100vh;
+  align-items: center;
+  flex-direction: column;
 }
 
 .main {
   display: flex;
-  background-color: #000000;
   width: 80vw;
-  height: 100vh;
   padding: 0px 10vw;
   align-items: center;
   justify-content: center;
-  color: #FFFFFF;
-  font-size: 1em;
+  color: #ffffffcc;
+  font-size: 8vw;
   font-weight: 800;
   font-family: var(--font-jetbrains), sans-serif;
+  flex: 1;
 }

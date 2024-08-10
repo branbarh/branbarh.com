@@ -1,0 +1,35 @@
+.header,
+.footer {
+  display: flex;
+  max-width: calc(100vw - 100px);
+  height: 50px;
+  padding: 25px 50px;
+  overflow: auto hidden;
+  align-items: center;
+  gap: 50px;
+}
+.dot {
+  background-color: #ffffff99;
+  width: 5px;
+  height: 5px;
+  border-radius: 100%;
+  flex: 0 0 auto;
+}
+.headerLink {
+  font-family: var(--font-plex-serif), sans-serif;
+  font-weight: 400;
+  color: #ffffff99;
+  text-decoration: none;
+}
+.footer img {
+  filter: invert();
+}
+.footerLink {
+  padding: 10px;
+  margin: -10px;
+  opacity: 0.6;
+  transition: opacity 0.25s;
+}
+.footerLink:hover {
+  opacity: 0.8;
+}

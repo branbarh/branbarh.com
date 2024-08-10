@@ -1,7 +1,6 @@
-
 // Import Google Fonts:
-import { IBM_Plex_Serif, IBM_Plex_Sans, JetBrains_Mono } from "next/font/google"
- 
+import { IBM_Plex_Sans, IBM_Plex_Serif, JetBrains_Mono } from "next/font/google";
+
 // Define variable fonts:
 const jetBrains = JetBrains_Mono({
   subsets: ["latin"],
