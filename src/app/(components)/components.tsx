@@ -1,31 +1,36 @@
+"use client";
+
 import styles from "../styles/components.module.css";
 import { Fragment } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 
 // Meta:
-import { getSocials, type Social } from "../meta";
+import { getSocials, type Social, type Page, type PageMeta } from "../(meta)/meta";
 
 type HeaderProps = {
-  pages: string[];
+  pageMeta: PageMeta;
 };
 type FooterProps = {
   toRenderSocials: boolean;
 };
 
-export function Header({ pages }: HeaderProps) {
+export function Header({ pageMeta }: HeaderProps) {
+  const pathname = usePathname();
   return (
     <div className={styles.header}>
-      {pages.map((pageName, i) => {
+      {pageMeta.pages.map((page, i) => {
         return (
           <Fragment key={i}>
             <a
-              className={styles.headerLink}
-              href={pageName === "Home" ? "/" : `/${pageName.toLowerCase()}`}
+              className={`${styles.headerLink} ${pathname === page.path ? styles.headerLinkActive : ""}`}
+              href={page.path}
+              data-text={page.name}
             >
-              {pageName}
+              {page.name}
             </a>
             {/* Display a dot between header link elements: */}
-            {i != pages.length - 1 ? <div className={styles.dot}></div> : <></>}
+            {i != pageMeta.pages.length - 1 ? <div className={styles.dot}></div> : <></>}
           </Fragment>
         );
       })}

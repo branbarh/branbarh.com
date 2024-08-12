@@ -9,7 +9,7 @@ import { jetBrains, plexSerif, plexSans } from "./styles/fonts";
 import { Header } from "./(components)/components";
 
 // Meta:
-import { getPages } from "./meta";
+import { getPages } from "./(meta)/meta";
 
 export const metadata: Metadata = {
   title: "Brandon | Portfolio",
@@ -38,7 +38,7 @@ export default function RootLayout({
           <div className="backgroundGrain"></div>
         </div>
         <div className="layout">
-          <Header pages={getPages()} />
+          <Header pageMeta={getPages()} />
           {children}
         </div>
       </body>

@@ -5,7 +5,18 @@ import { Footer } from "./(components)/components";
 export default function Home() {
   return (
     <>
-      <main className="main">UNDER CONSTRUCTION...</main>
+      <main className="main">
+        <div className="content">
+          <div className="text-spacer"></div>
+          <div className="text-large full">BRANDON</div>
+          <div className="text-large slim">
+            BRAN
+            <br />
+            {"\u00A0\u00A0"}DON
+          </div>
+          <div className="text-type">SOFTWARE ENGINEER |</div>
+        </div>
+      </main>
       <Footer toRenderSocials={true} />
     </>
   );

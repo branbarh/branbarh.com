@@ -24,11 +24,12 @@ body {
   filter: blur(5px);
 }
 .backgroundTint {
-  background-color: #0000007f;
+  background-color: #000;
+  opacity: 0.5;
 }
 .backgroundInsetShadow {
   /*                        blur spread */
-  box-shadow: inset 0px 0px 20px 10px #000000;
+  box-shadow: inset 0px 0px 20px 10px #000;
 }
 .backgroundGrain {
   background: url("/assets/noise.png") fixed repeat center;
@@ -46,13 +47,68 @@ body {
 
 .main {
   display: flex;
-  width: 80vw;
-  padding: 0px 10vw;
+  width: 100%;
   align-items: center;
   justify-content: center;
-  color: #ffffffcc;
-  font-size: 8vw;
-  font-weight: 800;
-  font-family: var(--font-jetbrains), sans-serif;
   flex: 1;
+}
+
+/* [TODO] Remove once all pages are complete: */
+.placeholder {
+  color: #fff;
+  font-family: var(--font-jetbrains), sans-serif;
+  font-weight: 800;
+  font-size: 8vw;
+  padding: 0px 10vw;
+  opacity: 0.8;
+}
+
+.text-large {
+  color: #fff;
+  font-family: var(--font-jetbrains), sans-serif;
+  font-weight: 800;
+  margin: 50px 0px;
+  opacity: 0.8;
+}
+.text-large.full {
+  font-size: calc(20px + 5vw);
+  letter-spacing: calc(20px + 5vw);
+  /* Compensate for letter-spacing on the last character: */
+  margin-right: calc(0px - (20px + 5vw));
+}
+.text-large.slim {
+  font-size: 12vw;
+  letter-spacing: 8vw;
+  /* Compensate for letter-spacing on the last character: */
+  margin-right: -8vw;
+}
+.text-type {
+  color: #fff;
+  font-family: var(--font-jetbrains), sans-serif;
+  text-align: right;
+  font-weight: 800;
+  opacity: 0.6;
+}
+.text-type {
+  font-size: 16pt;
+  line-height: 16pt;
+}
+.text-spacer {
+  height: 16pt;
+}
+
+/* Device size rules: */
+.full {
+  display: inherit;
+}
+.slim {
+  display: none;
+}
+@media only screen and (max-width: 800px) {
+  .full {
+    display: none;
+  }
+  .slim {
+    display: inherit;
+  }
 }
