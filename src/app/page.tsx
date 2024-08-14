@@ -1,6 +1,6 @@
 // import Image from "next/image";
 // import styles from "./styles/page.module.css";
-import { Footer } from "./(components)/components";
+import { Footer, Typeable } from "./(components)/components";
 
 export default function Home() {
   return (
@@ -14,7 +14,7 @@ export default function Home() {
             <br />
             {"\u00A0\u00A0"}DON
           </div>
-          <div className="text-type">SOFTWARE ENGINEER |</div>
+          <Typeable text="SOFTWARE ENGINEER" />
         </div>
       </main>
       <Footer toRenderSocials={true} />

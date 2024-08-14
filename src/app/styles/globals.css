@@ -2,7 +2,7 @@ body {
   background-color: #000;
   margin: 0px;
   padding: 0px;
-  width: 100vw;
+  width: 100dvw;
   height: 100dvh;
   overflow: hidden;
   font-size: 16pt;
@@ -58,8 +58,8 @@ body {
   color: #fff;
   font-family: var(--font-jetbrains), sans-serif;
   font-weight: 800;
-  font-size: 8vw;
-  padding: 0px 10vw;
+  font-size: 8dvw;
+  padding: 0px 10dvw;
   opacity: 0.8;
 }
 
@@ -71,27 +71,16 @@ body {
   opacity: 0.8;
 }
 .text-large.full {
-  font-size: calc(20px + 5vw);
-  letter-spacing: calc(20px + 5vw);
+  font-size: calc(20px + 5dvw);
+  letter-spacing: calc(20px + 5dvw);
   /* Compensate for letter-spacing on the last character: */
-  margin-right: calc(0px - (20px + 5vw));
+  margin-right: calc(0px - (20px + 5dvw));
 }
 .text-large.slim {
-  font-size: 12vw;
-  letter-spacing: 8vw;
+  font-size: 12dvw;
+  letter-spacing: 8dvw;
   /* Compensate for letter-spacing on the last character: */
-  margin-right: -8vw;
-}
-.text-type {
-  color: #fff;
-  font-family: var(--font-jetbrains), sans-serif;
-  text-align: right;
-  font-weight: 800;
-  opacity: 0.6;
-}
-.text-type {
-  font-size: 16pt;
-  line-height: 16pt;
+  margin-right: -8dvw;
 }
 .text-spacer {
   height: 16pt;
