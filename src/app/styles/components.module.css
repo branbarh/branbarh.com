@@ -7,6 +7,7 @@
   overflow: auto hidden;
   align-items: center;
   gap: 50px;
+  flex: 0 0 auto;
 }
 .dot {
   background-color: #fff;

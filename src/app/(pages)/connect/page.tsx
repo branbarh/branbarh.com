@@ -3,9 +3,9 @@ import { Footer } from "../../(components)/components";
 export default function Connect() {
   return (
     <>
-      <main className="main">
+      <div className="content">
         <div className="placeholder">UNDER CONSTRUCTION...</div>
-      </main>
+      </div>
       <Footer toRenderSocials={false} />
     </>
   );

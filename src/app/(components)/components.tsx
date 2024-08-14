@@ -3,10 +3,11 @@
 import styles from "../styles/components.module.css";
 import { Fragment, useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import Image from "next/image";
 
 // Meta:
-import { getSocials, type Social, type Page, type PageMeta } from "../(meta)/meta";
+import { getSocials, type PageMeta } from "../(meta)/meta";
 
 type HeaderProps = {
   pageMeta: PageMeta;
@@ -25,13 +26,14 @@ export function Header({ pageMeta }: HeaderProps) {
       {pageMeta.pages.map((page, i) => {
         return (
           <Fragment key={i}>
-            <a
+            <Link
               className={`${styles.headerLink} ${pathname === page.path ? styles.headerLinkActive : ""}`}
               href={page.path}
               data-text={page.name}
+              prefetch={true}
             >
               {page.name}
-            </a>
+            </Link>
             {/* Display a dot between header link elements: */}
             {i != pageMeta.pages.length - 1 ? <div className={styles.dot}></div> : <></>}
           </Fragment>
@@ -70,32 +72,46 @@ export function Footer({ toRenderSocials }: FooterProps) {
 }
 
 export function Typeable({ text }: TypeableProps) {
+  // Animation parameters:
+  const startDelay = 220; // The delay before the animation should begin (first blink of the cursor ("|") will be at {startDelay + blinkRate})
   const blinkRate = 530; // Supposedly the Windows default, according to ChatGPT
-  const blinkCountStart = 3; // The number of times to blink before beginning to type
+  const blinkCountStart = 2; // The number of times to blink before beginning to type
   const blinkCountEnd = 4; // The number of times to blink after finishing typing
   const typeRate = 120; // The base rate at which the text should be typed (120 = 100 WPM)
   const typeRandomness = 50; // The maximum random offset for the type rate at each step
 
-  const [currentText, setCurrentText] = useState("|");
-  const [currentState, setCurrentState] = useState("blinkStart");
+  // Use hooks:
+  const [currentText, setCurrentText] = useState("");
+  const [currentState, setCurrentState] = useState("initial");
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     let timeout: ReturnType<typeof setTimeout>;
     let formattedText = `${text.split(" ").join("\u00A0")}\u00A0`;
     switch (currentState) {
+      // Initial state:
+      case "initial":
+        timeout = setTimeout(() => {
+          setCurrentState("blinkStart");
+        }, startDelay);
+        break;
+
+      // Blink start state:
       case "blinkStart":
         timeout = setTimeout(() => {
           setCurrentText((prevText) => {
             return prevText === "|" ? "\u00A0" : "|";
           });
           setCurrentIndex((prevIndex) => prevIndex + 1);
-          if (currentIndex >= 2 * blinkCountStart - 1) {
+          if (currentIndex >= 2 * blinkCountStart - 2) {
+            setCurrentText("|");
             setCurrentIndex(0);
             setCurrentState("type");
           }
         }, blinkRate);
         break;
+
+      // Typing state:
       case "type":
         timeout = setTimeout(() => {
           if (currentIndex >= formattedText.length) {
@@ -107,6 +123,8 @@ export function Typeable({ text }: TypeableProps) {
           setCurrentIndex((prevIndex) => prevIndex + 1);
         }, typeRate + 2 * (Math.random() - 0.5) * typeRandomness);
         break;
+
+      // Blink end state:
       case "blinkEnd":
         timeout = setTimeout(() => {
           setCurrentText((prevText) => {
@@ -120,6 +138,8 @@ export function Typeable({ text }: TypeableProps) {
         }, blinkRate);
         break;
     }
+
+    // Always clear the timeout on re-render:
     return () => clearTimeout(timeout);
   }, [currentState, currentIndex, text]);
 

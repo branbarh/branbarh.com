@@ -1,16 +1,18 @@
-// Types:
+// Type imports:
 import type { Metadata } from "next";
 
-// Styles and fonts:
+// Style imports:
 import "./styles/globals.css";
 import { jetBrains, plexSerif, plexSans } from "./styles/fonts";
 
-// Components:
+// Component imports:
 import { Header } from "./(components)/components";
+import { Content } from "./(components)/content";
 
-// Meta:
+// Meta imports:
 import { getPages } from "./(meta)/meta";
 
+// Website metadata:
 export const metadata: Metadata = {
   title: "Brandon | Portfolio",
   description: "The personal portfolio website for Brandon Barham, branbarh.com.",
@@ -19,6 +21,7 @@ export const metadata: Metadata = {
   }
 };
 
+// Root layout:
 export default function RootLayout({
   children
 }: Readonly<{
@@ -39,7 +42,7 @@ export default function RootLayout({
         </div>
         <div className="layout">
           <Header pageMeta={getPages()} />
-          {children}
+          <Content>{children}</Content>
         </div>
       </body>
     </html>
