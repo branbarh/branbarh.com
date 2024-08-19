@@ -7,17 +7,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 // Meta:
-import { getSocials, type PageMeta } from "../(meta)/meta";
-
-type HeaderProps = {
-  pageMeta: PageMeta;
-};
-type FooterProps = {
-  toRenderSocials: boolean;
-};
-type TypeableProps = {
-  text: string;
-};
+import { getSocials } from "../(meta)/meta";
+import { type HeaderProps, type FooterProps, type TypeableProps } from "@/app/(meta)/types";
 
 export function Header({ pageMeta }: HeaderProps) {
   const pathname = usePathname();
@@ -35,7 +26,7 @@ export function Header({ pageMeta }: HeaderProps) {
               {page.name}
             </Link>
             {/* Display a dot between header link elements: */}
-            {i != pageMeta.pages.length - 1 ? <div className={styles.dot}></div> : <></>}
+            {i != pageMeta.pages.length - 1 ? <div className="dot"></div> : <></>}
           </Fragment>
         );
       })}
@@ -145,5 +136,3 @@ export function Typeable({ text }: TypeableProps) {
 
   return <div className={styles.textType}>{currentText}</div>;
 }
-
-export function Pane() {}

@@ -1,0 +1,198 @@
+/* Pane styles: */
+.pane {
+  display: flex;
+  width: 90vw;
+  max-width: 2000px;
+  margin-bottom: 50px;
+  box-shadow: 0px 10px 25px 0px rgb(0, 0, 0, calc(var(--opacity) * 0.5));
+  border-radius: 10px;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Pane sidebar styles: */
+.paneSidebar {
+  background-color: rgb(85, 85, 85, calc(var(--opacity) * 0.1));
+  width: 220px;
+  padding: 40px 30px;
+  flex: 0 0 auto;
+  backdrop-filter: blur(calc(var(--blur) * 15px + 10px)) opacity(var(--opacity));
+  border-radius: 10px 0px 0px 10px;
+}
+.paneSectionGroupContainer {
+  position: sticky;
+  top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  opacity: var(--opacity);
+}
+.paneSectionGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.paneSectionGroupName {
+  font-family: var(--font-plex-sans);
+  font-weight: 600;
+  font-size: 12pt;
+  color: rgba(255, 255, 255, 0.2);
+}
+.paneSection {
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+  gap: 0px;
+  transition: 0.25s gap;
+}
+.paneSection .paneSectionDot {
+  background-color: rgba(255, 255, 255);
+  width: 0px;
+  height: 0px;
+  border-radius: 100%;
+  flex: 0 0 auto;
+  opacity: 0;
+  transition: 0.25s width, 0.25s height, 0.25s opacity;
+}
+.paneSection.active {
+  gap: 10px;
+}
+.paneSection.active .paneSectionDot {
+  width: 5px;
+  height: 5px;
+  opacity: 0.8;
+}
+.paneSectionName a {
+  font-family: var(--font-plex-sans);
+  font-weight: 400;
+  font-size: 16pt;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: 0.25s color;
+}
+.paneSectionName img {
+  filter: invert();
+  opacity: 0.6;
+  transition: 0.25s opacity;
+}
+.paneSectionName:hover a {
+  color: rgba(255, 255, 255, 0.8);
+}
+.paneSectionName:hover img {
+  opacity: 0.8;
+}
+.paneSection.active .paneSectionName a {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Pane content styles: */
+.paneContent {
+  display: flex;
+  backdrop-filter: blur(10px) opacity(var(--opacity));
+  border-radius: 0px 10px 10px 0px;
+  flex: 1 1 auto;
+  flex-direction: column;
+}
+.paneContentItemContainer {
+  display: flex;
+  padding: 45px 75px 50px 75px;
+  flex-direction: column;
+  gap: 30px;
+}
+.paneContentScrollProgressContainer {
+  position: sticky;
+  top: 0px;
+  border-radius: 2.5px;
+  overflow: hidden;
+}
+.paneContentScrollProgress {
+  width: calc(90vw - 280px);
+  height: 5px;
+  /* background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(60, 85, 70, var(--opacity)) 75px, rgba(60, 85, 70, var(--opacity)) calc(100% - 75px), rgba(0, 0, 0, 0)); */
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(70, 85, 75, var(--opacity)) 75px, rgba(70, 85, 75, var(--opacity)) calc(100% - 75px), rgba(0, 0, 0, 0));
+}
+
+/* Pane header and photo header styles: */
+.paneHeaderContainer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.paneHeader {
+  font-family: var(--font-plex-sans);
+  font-size: 36pt;
+  font-weight: 700;
+  color: rgb(255, 255, 255, calc(var(--opacity) * 0.8));
+  padding-top: 25px;
+  margin-top: -25px;
+}
+.paneHeaderFragmentLink {
+  opacity: var(--opacity);
+}
+.paneHeaderFragmentLink a {
+  display: block;
+  width: 25px;
+  height: 25px;
+  opacity: 0;
+  transition: 0.25s opacity;
+}
+.paneHeaderContainer:hover .paneHeaderFragmentLink a {
+  opacity: 1;
+}
+.paneHeaderFragmentLink img {
+  filter: invert(55%) sepia() saturate(3.5) hue-rotate(180deg);
+}
+.panePhotoHeader {
+  display: flex;
+}
+.panePhotoHeader .paneHeaderContainer {
+  flex: 1;
+}
+.panePhotoGroup {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 10px;
+}
+.panePhoto {
+  flex: 1 0 250px;
+  opacity: var(--opacity);
+}
+.panePhoto img {
+  width: 100%;
+  border-radius: 5px;
+}
+.paneText {
+  font-family: var(--font-plex-serif);
+  font-size: 16pt;
+  font-weight: 400;
+  color: rgb(255, 255, 255, calc(var(--opacity) * 0.6));
+}
+.paneBullet {
+  font-family: var(--font-plex-serif);
+  font-size: 16pt;
+  font-weight: 400;
+  color: rgb(255, 255, 255, calc(var(--opacity) * 0.6));
+}
+.paneBullet ul {
+  margin: 0px;
+}
+.paneSpacer {
+  display: flex;
+  padding: 20px 0px;
+  gap: 10px;
+  align-items: center;
+}
+.paneSpacerDot {
+  background-color: rgba(255, 255, 255, calc(var(--opacity) * 0.6));
+  width: 5px;
+  height: 5px;
+  border-radius: 100%;
+}
+.paneSpacerBar {
+  background-color: rgba(255, 255, 255, calc(var(--opacity) * 0.6));
+  height: 1px;
+  flex: 1;
+}

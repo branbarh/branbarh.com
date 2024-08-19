@@ -1,7 +1,13 @@
+import { Pane } from "@/app/(components)/pane";
+import { getSectionGroups, getContent } from "@/app/(meta)/meta";
+
 export default function Experience() {
   return (
     <div className="content">
-      <div className="placeholder">UNDER CONSTRUCTION...</div>
+      <Pane
+        sectionGroups={getSectionGroups("experience")}
+        content={getContent("experience")}
+      ></Pane>
     </div>
   );
 }

@@ -16,21 +16,11 @@ const plexSerif = IBM_Plex_Serif({
   display: "swap"
 });
 const plexSans = IBM_Plex_Sans({
-  weight: ["400", "500", "700"],
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-plex-sans",
   display: "swap"
 });
-
-// const plexSerif = {
-//   regular: IBM_Plex_Serif({ weight: "400" }),
-//   medium: IBM_Plex_Serif({ weight: "500" })
-// };
-// const plexSans = {
-//   regular: IBM_Plex_Sans({ weight: "400" }),
-//   medium: IBM_Plex_Sans({ weight: "500" }),
-//   bold: IBM_Plex_Sans({ weight: "700" })
-// };
 
 // Export fonts for use throughout the application:
 export { jetBrains, plexSerif, plexSans };

@@ -16,14 +16,6 @@
   padding: 25px 0px;
   overflow: hidden;
 }
-.dot {
-  background-color: #fff;
-  width: 5px;
-  height: 5px;
-  border-radius: 100%;
-  flex: 0 0 auto;
-  opacity: 0.6;
-}
 .headerLink {
   display: inline-flex;
   font-family: var(--font-plex-serif), sans-serif;
@@ -59,6 +51,7 @@
 }
 .footer img {
   filter: invert();
+  opacity: calc(var(--opacity) * 0.6);
 }
 .footerLink {
   display: flex;
@@ -66,7 +59,6 @@
   height: 30px;
   padding: 10px;
   margin: -10px;
-  opacity: 0.6;
   transition: opacity 0.25s;
   align-items: center;
   justify-content: center;
@@ -78,7 +70,7 @@
 /* Typeable styles: */
 .textType {
   height: 16pt;
-  color: #fff;
+  color: rgba(255, 255, 255, var(--opacity));
   font-family: var(--font-jetbrains), sans-serif;
   text-align: right;
   font-weight: 800;

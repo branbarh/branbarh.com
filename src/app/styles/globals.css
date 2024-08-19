@@ -25,7 +25,7 @@ body {
   background-color: #000;
 }
 .backgroundImage {
-  background: url("/assets/background.jpg") fixed no-repeat center / cover;
+  background: url("/assets/background/background.jpg") fixed no-repeat center / cover;
   filter: blur(5px);
 }
 .backgroundTint {
@@ -37,7 +37,7 @@ body {
   box-shadow: inset 0px 0px 20px 10px #000;
 }
 .backgroundGrain {
-  background: url("/assets/noise.png") fixed repeat center;
+  background: url("/assets/background/noise.png") fixed repeat center;
   opacity: 0.08;
 }
 
@@ -48,6 +48,9 @@ body {
   height: 100dvh;
   align-items: center;
   flex-direction: column;
+  overflow-y: auto;
+  scrollbar-gutter: stable both-edges;
+  scroll-behavior: smooth;
 }
 
 .main {
@@ -67,7 +70,7 @@ body {
 
 /* [TODO] Remove once all pages are complete: */
 .placeholder {
-  color: #fff;
+  color: rgba(255, 255, 255, var(--opacity));
   font-family: var(--font-jetbrains), sans-serif;
   font-weight: 800;
   font-size: 8dvw;
@@ -76,7 +79,7 @@ body {
 }
 
 .text-large {
-  color: #fff;
+  color: rgba(255, 255, 255, var(--opacity));
   font-family: var(--font-jetbrains), sans-serif;
   font-weight: 800;
   margin: 50px 0px;
@@ -96,6 +99,22 @@ body {
 }
 .text-spacer {
   height: 16pt;
+}
+
+/* Dot: */
+.dot {
+  background-color: #fff;
+  width: 5px;
+  height: 5px;
+  border-radius: 100%;
+  flex: 0 0 auto;
+  opacity: 0.6;
+}
+
+/* Hide scrollbar: */
+::-webkit-scrollbar {
+  display: none;
+  width: 0px;
 }
 
 /* Device size rules: */

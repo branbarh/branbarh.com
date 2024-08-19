@@ -7,7 +7,7 @@ import { jetBrains, plexSerif, plexSans } from "./styles/fonts";
 
 // Component imports:
 import { Header } from "./(components)/components";
-import { Content } from "./(components)/content";
+import { Background, Content } from "./(components)/content";
 
 // Meta imports:
 import { getPages } from "./(meta)/meta";
@@ -33,13 +33,7 @@ export default function RootLayout({
       className={`${jetBrains.variable} ${plexSerif.variable} ${plexSans.variable}`}
     >
       <body>
-        <div className="background">
-          <div className="backgroundBase"></div>
-          <div className="backgroundImage"></div>
-          <div className="backgroundTint"></div>
-          <div className="backgroundInsetShadow"></div>
-          <div className="backgroundGrain"></div>
-        </div>
+        <Background />
         <div className="layout">
           <Header pageMeta={getPages()} />
           <Content>{children}</Content>
