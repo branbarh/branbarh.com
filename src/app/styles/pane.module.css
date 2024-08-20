@@ -110,7 +110,6 @@
 .paneContentScrollProgress {
   width: calc(90vw - 280px);
   height: 5px;
-  /* background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(60, 85, 70, var(--opacity)) 75px, rgba(60, 85, 70, var(--opacity)) calc(100% - 75px), rgba(0, 0, 0, 0)); */
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(70, 85, 75, var(--opacity)) 75px, rgba(70, 85, 75, var(--opacity)) calc(100% - 75px), rgba(0, 0, 0, 0));
 }
 
@@ -195,4 +194,58 @@
   background-color: rgba(255, 255, 255, calc(var(--opacity) * 0.6));
   height: 1px;
   flex: 1;
+}
+
+/* SLIM */
+@media only screen and (max-width: 800px) {
+  .pane {
+    flex-direction: column;
+  }
+  .paneSidebar {
+    padding: 30px;
+    width: calc(90dvw - 60px);
+    border-radius: 10px 10px 0px 0px;
+  }
+  .paneSectionGroupContainer {
+    position: static;
+    flex-direction: row;
+  }
+  .paneSectionGroup {
+    flex: 1;
+  }
+  .paneContent {
+    border-radius: 0px 0px 10px 10px;
+  }
+  .paneContentScrollProgress {
+    width: 90vw;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(70, 85, 75, var(--opacity)) calc(8vw + 10px), rgba(70, 85, 75, var(--opacity)) calc(100% - (8vw + 10px)), rgba(0, 0, 0, 0));
+  }
+  .paneContentItemContainer {
+    padding: 45px calc(8vw + 10px) 50px calc(8vw + 10px);
+  }
+}
+
+/* TINY (width) */
+@media only screen and (max-width: 500px) {
+  .pane {
+    width: 100vw;
+    margin-bottom: 0px;
+  }
+  .paneSidebar {
+    width: calc(100dvw - 60px);
+    border-radius: 0px;
+  }
+  .paneSectionGroupContainer {
+    flex-direction: column;
+  }
+  .paneContent {
+    border-radius: 0px;
+  }
+  .paneContentScrollProgress {
+    width: 100vw;
+  }
+  .panePhoto {
+    width: 100%;
+    flex: 0 0 auto;
+  }
 }

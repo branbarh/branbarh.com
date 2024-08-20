@@ -242,7 +242,7 @@ export function Pane({ sectionGroups, content }: PaneProps) {
     const header = document.querySelector<HTMLElement>(`.${componentStyles.header}`);
     const fragment = document.querySelector<HTMLElement>(`#${fragmentID}`);
     if (!layout || !header || !fragment) return;
-    const paneOffset = header.offsetHeight;
+    const paneOffset = header.offsetHeight; // [TODO] this doesn't work on SLIM or TINY size since the sidebar takes up vertical space
     const fragmentOffset = fragment.offsetTop;
     const scrollTo = paneOffset + fragmentOffset;
     layout.scrollTo({
