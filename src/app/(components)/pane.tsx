@@ -240,11 +240,13 @@ export function Pane({ sectionGroups, content }: PaneProps) {
     // Scroll to the fragment if the fragmentID is valid:
     const layout = document.querySelector<HTMLElement>(".layout");
     const header = document.querySelector<HTMLElement>(`.${componentStyles.header}`);
+    const paneContent = document.querySelector<HTMLElement>(`.${styles.paneContent}`);
     const fragment = document.querySelector<HTMLElement>(`#${fragmentID}`);
-    if (!layout || !header || !fragment) return;
+    if (!layout || !header || !paneContent || !fragment) return;
     const paneOffset = header.offsetHeight; // [TODO] this doesn't work on SLIM or TINY size since the sidebar takes up vertical space
     const fragmentOffset = fragment.offsetTop;
-    const scrollTo = paneOffset + fragmentOffset;
+    const paneContentOffset = paneContent.offsetTop;
+    const scrollTo = paneOffset + paneContentOffset + fragmentOffset;
     layout.scrollTo({
       top: scrollTo,
       behavior: "smooth"
