@@ -7,11 +7,32 @@ import Link from "next/link";
 import Image from "next/image";
 
 // Meta:
-import { getSocials } from "../(meta)/meta";
+import { getPages, getSocials } from "../(meta)/meta";
 import { type HeaderProps, type FooterProps, type TypeableProps } from "@/app/(meta)/types";
 
 export function Header({ pageMeta }: HeaderProps) {
   const pathname = usePathname();
+
+  // Scroll to center the current page on path change:
+  useEffect(() => {
+    // Get the link element to center (and the header element):
+    const name = getPages().pathToName[pathname];
+    const linkElm = document.querySelector<HTMLElement>(`[data-text="${name}"]`);
+    const header = document.querySelector<HTMLElement>(`.${styles.header}`);
+
+    // Calculate the scroll position to center the link element:
+    const linkCenter = (linkElm?.offsetLeft || 0) + (linkElm?.offsetWidth || 0) / 2;
+    const windowCenter = window.innerWidth / 2;
+    const scrollTo = linkCenter - windowCenter;
+
+    // Scroll to center the link element:
+    if (!header) return;
+    header.scrollTo({
+      left: scrollTo,
+      behavior: "smooth"
+    });
+  }, [pathname]);
+
   return (
     <div className={styles.header}>
       {pageMeta.pages.map((page, i) => {
