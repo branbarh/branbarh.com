@@ -148,7 +148,15 @@ function PanePhotoHeader({ value, fragmentID, photo }: PhotoHeaderData) {
           </a>
         </div>
       </div>
-      {/* <div className={"[TODO] pane header photo"}></div> */}
+      <div className={styles.panePhotoHeaderPhoto}>
+        {/* The standard HTML <img> tag needs to be used here, since we are loading dynamic images (potetially from other hosts): */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          className={styles.panePhotoHeaderPhoto}
+          src={photo.src}
+          alt={photo.alt}
+        ></img>
+      </div>
     </div>
   );
 }
@@ -243,10 +251,10 @@ export function Pane({ sectionGroups, content }: PaneProps) {
     const paneContent = document.querySelector<HTMLElement>(`.${styles.paneContent}`);
     const fragment = document.querySelector<HTMLElement>(`#${fragmentID}`);
     if (!layout || !header || !paneContent || !fragment) return;
-    const paneOffset = header.offsetHeight; // [TODO] this doesn't work on SLIM or TINY size since the sidebar takes up vertical space
+    const paneOffset = header.offsetHeight;
     const fragmentOffset = fragment.offsetTop;
     const paneContentOffset = paneContent.offsetTop;
-    const scrollTo = paneOffset + paneContentOffset + fragmentOffset;
+    const scrollTo = paneOffset + paneContentOffset + fragmentOffset; // [TODO] this scrolls just a little too far down (although I can't remember when this is the case???)
     layout.scrollTo({
       top: scrollTo,
       behavior: "smooth"
