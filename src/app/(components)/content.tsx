@@ -1,7 +1,7 @@
 "use client";
 
 import { PropsWithChildren } from "react";
-import { MotionWrapper, MotionDiv, FrozenRouter } from "./motion";
+import { MotionWrapper, MotionDiv, FrozenRouter } from "@/(components)/motion";
 import { usePathname } from "next/navigation";
 
 export function Background() {

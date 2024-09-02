@@ -2,15 +2,15 @@
 import type { Metadata } from "next";
 
 // Style imports:
-import "./styles/globals.css";
-import { jetBrains, plexSerif, plexSans } from "./styles/fonts";
+import "@/styles/globals.css";
+import { jetBrains, plexSerif, plexSans } from "@/styles/fonts";
 
 // Component imports:
-import { Header } from "./(components)/components";
-import { Background, Content } from "./(components)/content";
+import { Header } from "@/(components)/components";
+import { Background, Content } from "@/(components)/content";
 
 // Meta imports:
-import { getPages } from "./(meta)/meta";
+import { getPages } from "@/(meta)/meta";
 
 // Website metadata:
 export const metadata: Metadata = {

@@ -22,7 +22,14 @@ export type FooterProps = {
   toRenderSocials: boolean;
 };
 export type TypeableProps = {
+  align: "left" | "right";
   text: string;
+};
+export type LargeTextProps = {
+  spacer: boolean;
+  letterSpacing: boolean;
+  textFull: string;
+  textSlim: string;
 };
 
 interface SectionBase {

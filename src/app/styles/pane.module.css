@@ -173,6 +173,7 @@
   gap: 10px;
 }
 .panePhoto {
+  /* [TODO] clicking on a photo should open a fullscreen view of the photo */
   flex: 1 0 250px;
   opacity: var(--opacity);
 }

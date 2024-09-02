@@ -1,4 +1,4 @@
-import { type PageMeta, type Page, type Social, type SectionGroup, type Content } from "@/app/(meta)/types";
+import { type PageMeta, type Page, type Social, type SectionGroup, type Content } from "@/(meta)/types";
 
 export function getPages(): PageMeta {
   // Get the list of page names and routes:
@@ -45,7 +45,7 @@ export function getPages(): PageMeta {
   };
 }
 
-export function getSocials(): Social[] {
+export function getFooterSocials(): Social[] {
   // [TODO] Hard-coded for now until MongoDB is setup:
   return [
     {
@@ -62,6 +62,27 @@ export function getSocials(): Social[] {
       name: "GitHub",
       iconSrc: "/assets/icons/github.svg",
       href: "https://github.com/branbarh"
+    }
+  ];
+}
+
+export function getConnectSocials(): Social[] {
+  // [TODO] Hard-coded for now until MongoDB is setup:
+  return [
+    {
+      name: "Brandon on LinkedIn",
+      iconSrc: "/assets/icons/linkedin.svg",
+      href: "https://linkedin.com/in/branbarh"
+    },
+    {
+      name: "branbarh@umich.edu",
+      iconSrc: "/assets/icons/gmail.svg",
+      href: "mailto:branbarh@umich.edu"
+    },
+    {
+      name: "+1 (586) 599 - 9501",
+      iconSrc: "/assets/icons/phone.svg",
+      href: "tel:+15865999501"
     }
   ];
 }

@@ -68,39 +68,6 @@ body {
   flex: 1;
 }
 
-/* [TODO] Remove once all pages are complete: */
-.placeholder {
-  color: rgba(255, 255, 255, var(--opacity));
-  font-family: var(--font-jetbrains), sans-serif;
-  font-weight: 800;
-  font-size: 8dvw;
-  padding: 0px 10dvw;
-  opacity: 0.8;
-}
-
-.text-large {
-  color: rgba(255, 255, 255, var(--opacity));
-  font-family: var(--font-jetbrains), sans-serif;
-  font-weight: 800;
-  margin: 50px 0px;
-  opacity: 0.8;
-}
-.text-large.full {
-  font-size: calc(20px + 5dvw);
-  letter-spacing: calc(20px + 5dvw);
-  /* Compensate for letter-spacing on the last character: */
-  margin-right: calc(0px - (20px + 5dvw));
-}
-.text-large.slim {
-  font-size: 12dvw;
-  letter-spacing: 8dvw;
-  /* Compensate for letter-spacing on the last character: */
-  margin-right: -8dvw;
-}
-.text-spacer {
-  height: 16pt;
-}
-
 /* Dot: */
 .dot {
   background-color: #fff;
@@ -115,29 +82,4 @@ body {
 ::-webkit-scrollbar {
   display: none;
   width: 0px;
-}
-
-/* Device size rules: */
-.full {
-  display: inherit;
-}
-.slim {
-  display: none;
-}
-
-/* SLIM */
-@media only screen and (max-width: 800px) {
-  .full {
-    display: none;
-  }
-  .slim {
-    display: inherit;
-  }
-}
-
-/* TINY (width) */
-@media only screen and (max-width: 400px) {
-  .text-spacer {
-    height: 6dvw;
-  }
 }

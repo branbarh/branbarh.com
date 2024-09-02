@@ -1,14 +1,15 @@
 "use client";
 
-import styles from "../styles/components.module.css";
+import styles from "@/styles/components.module.css";
 import { Fragment, useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 
 // Meta:
-import { getPages, getSocials } from "../(meta)/meta";
-import { type HeaderProps, type FooterProps, type TypeableProps } from "@/app/(meta)/types";
+import { getPages, getFooterSocials } from "@/(meta)/meta";
+import { type HeaderProps, type FooterProps, type TypeableProps, LargeTextProps } from "@/(meta)/types";
+import { escapeString } from "@/(meta)/util";
 
 export function Header({ pageMeta }: HeaderProps) {
   const pathname = usePathname();
@@ -59,7 +60,7 @@ export function Footer({ toRenderSocials }: FooterProps) {
   return (
     <div className={styles.footer}>
       {toRenderSocials ? (
-        getSocials().map((social, i) => {
+        getFooterSocials().map((social, i) => {
           return (
             <a
               key={i}
@@ -83,7 +84,7 @@ export function Footer({ toRenderSocials }: FooterProps) {
   );
 }
 
-export function Typeable({ text }: TypeableProps) {
+export function Typeable({ align, text }: TypeableProps) {
   // Animation parameters:
   const startDelay = 220; // The delay before the animation should begin (first blink of the cursor ("|") will be at {startDelay + blinkRate})
   const blinkRate = 530; // Supposedly the Windows default, according to ChatGPT
@@ -155,5 +156,15 @@ export function Typeable({ text }: TypeableProps) {
     return () => clearTimeout(timeout);
   }, [currentState, currentIndex, text]);
 
-  return <div className={styles.textType}>{currentText}</div>;
+  return <div className={`${styles.textType} ${align === "left" ? styles.alignLeft : styles.alignRight}`}>{currentText}</div>;
+}
+
+export function LargeText({ spacer, letterSpacing, textFull, textSlim }: LargeTextProps) {
+  return (
+    <div className={styles.textLargeContainer}>
+      {spacer ? <div className={styles.textLargeSpacer}></div> : ""}
+      <div className={`${styles.textLarge} ${letterSpacing ? "" : styles.textLargeNoSpacing} ${styles.textLargeFull}`}>{escapeString(textFull)}</div>
+      <div className={`${styles.textLarge} ${letterSpacing ? "" : styles.textLargeNoSpacing} ${styles.textLargeSlim}`}>{escapeString(textSlim)}</div>
+    </div>
+  );
 }

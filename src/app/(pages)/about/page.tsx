@@ -1,5 +1,5 @@
-import { Pane } from "@/app/(components)/pane";
-import { getSectionGroups, getContent } from "@/app/(meta)/meta";
+import { Pane } from "@/(components)/pane";
+import { getSectionGroups, getContent } from "@/(meta)/meta";
 
 export default function About() {
   return (

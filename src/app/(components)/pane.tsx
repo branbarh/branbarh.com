@@ -2,11 +2,11 @@
 
 import { ReactNode, useEffect, useState } from "react";
 import Image from "next/image";
-import styles from "../styles/pane.module.css";
-import componentStyles from "../styles/components.module.css";
+import styles from "@/styles/pane.module.css";
+import componentStyles from "@/styles/components.module.css";
 
-import { type PaneProps, type HeaderData, type PhotoHeaderData, type PhotoGroupData, type TextData, type BulletData, type SpacerData, type SectionGroup, type SectionProps } from "@/app/(meta)/types";
-import useFragmentID from "../(hooks)/fragmentID";
+import { type PaneProps, type HeaderData, type PhotoHeaderData, type PhotoGroupData, type TextData, type BulletData, type SpacerData, type SectionGroup, type SectionProps } from "@/(meta)/types";
+import useFragmentID from "@/(hooks)/fragmentID";
 
 function PaneSection({ name, href, fragmentID, active }: SectionProps) {
   return (
